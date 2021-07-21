@@ -11,11 +11,7 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('similarity')}}"method="post">
-    	<input type="text" name="sentence1" placeholder="sentence1" required="required" />
-        <input type="text" name="sentence2" placeholder="sentence2" required="required" />
-	
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict similarity</button>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict similarity</button>
     </form>
 
    <br>
