@@ -1,13 +1,13 @@
 import numpy as np
 from flask import Flask,render_template,request
 import pickle
-from keras.models import load_model
+from tensorflow.keras import models
 from util import ManDist
 import pandas as pd
 
 
 app = Flask(__name__)
-model = load_model('./data/SiameseLSTM.h5',custom_objects={'ManDist': ManDist})
+model = models.load_model('./data/SiameseLSTM.h5',custom_objects={'ManDist': ManDist})
 
 
 @app.route('/')
