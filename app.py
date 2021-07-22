@@ -17,6 +17,9 @@ def home():
 
 @app.route('/similarity',methods=['POST'])
 def similarity():
+    sentence1 = request.form["sentence1"]
+    sentence2 = request.form["sentence2"]
+
     import pandas as pd
 
     import tensorflow as tf
@@ -31,6 +34,8 @@ def similarity():
 
     # Load training set
     test_df = pd.read_csv(TEST_CSV)
+    new_row = {'sentence1':sentence1, 'sentence2':sentence2}
+    test_df = test_df.append(new_row, ignore_index = True)
     for q in ['sentence1', 'sentence2']:
         test_df[q + '_n'] = test_df[q]
 

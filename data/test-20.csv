@@ -1,4 +1,6 @@
-test_id,sentence1,sentence2
-0,An old man with a package poses in front of an advertisement.,A man poses in front of an ad.
-1,A statue at a museum that no seems to be looking at.,The statue is offensive and people are mad that it is on display.
-2,A statue at a museum that no seems to be looking at.,There is a statue that not many people seem to be interested in.
+test_id,sentence1,sentence2,Manhattan LSTM,Sbert,G
+0,,,46.142357,74.1,entailment
+1,,,38.224987,79,entailment
+2,,,34.726818,60,entailment
+3,,,30.072186,54,neutral
+4,,,29.42,45,Contradicting
