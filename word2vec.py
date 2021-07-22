@@ -10,7 +10,6 @@ def extract_questions():
     Extract sentences for making word2vec model.
     """
     df1 = pd.read_csv("data/snli_1.0_train.csv")
-    df2 = pd.read_csv("data/snli_1.0_test.csv")
 
     for dataset in [df1]:
         for i, row in dataset.iterrows():
