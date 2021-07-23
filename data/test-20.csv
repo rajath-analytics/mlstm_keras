@@ -1,6 +1,2 @@
 test_id,sentence1,sentence2,Manhattan LSTM,Sbert,G
-0,,,46.142357,74.1,entailment
-1,,,38.224987,79,entailment
-2,,,34.726818,60,entailment
-3,,,30.072186,54,neutral
-4,,,29.42,45,Contradicting
+

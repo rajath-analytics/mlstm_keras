@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/392a725a-3b31-48d3-83f8-4d13b7bc1472/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/sentencesimilarity-mlstm",
+    "appService.deploySubpath": "."
+}

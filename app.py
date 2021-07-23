@@ -58,7 +58,7 @@ def similarity():
     prediction = model.predict([X_test['left'], X_test['right']]) * 100
     print(prediction)
 
-    return render_template('index.html', prediction_text='Similarity $ {}'.format(prediction))
+    return render_template('index.html', prediction_text='Similarity :  {}%'.format(prediction))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='127.0.0.1',port=5000)
