@@ -69,12 +69,10 @@ x = Sequential()
 x.add(Embedding(len(embeddings), embedding_dim,
                 weights=[embeddings], input_length=max_seq_length, trainable=False))
 x.add(SpatialDropout1D(0.3))
-
-
 # LSTM
 x.add(LSTM((70), dropout=0.3, recurrent_dropout=0.3))
 x.add(Dense(70, activation='relu'))
-x.add(Dense(64, activation='softmax'))
+x.add(Dense(3, activation='softmax'))
 shared_model = x
 left_input = Input(shape=(max_seq_length,), dtype='int32')
 right_input = Input(shape=(max_seq_length,), dtype='int32')
