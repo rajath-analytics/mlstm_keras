@@ -4,7 +4,11 @@ from tensorflow.python.keras import backend as K
 from tensorflow.python.keras.layers import Layer
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 
+
+import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
+
 from gensim.models import KeyedVectors
 
 import gensim
@@ -72,17 +76,17 @@ def make_w2v_embeddings(df, embedding_dim=300, empty_w2v=False):
         word2vec = EmptyWord2Vec
     else:
         word2vec = KeyedVectors.load("./data/mlstmkerasembeddings.bin")
-        # word2vec = gensim.models.word2vec.Word2Vec.load("./data/Quora-Question-Pairs.w2v").wv
+        
 
     for index, row in df.iterrows():
         # Print the number of embedded sentences.
         if index != 0 and index % 1000 == 0:
             print("{:,} sentences embedded.".format(index), flush=True)
 
-        # Iterate through the text of both questions of the row
+        
         for question in ['sentence1', 'sentence2']:
 
-            q2n = []  # q2n -> question numbers representation
+            q2n = []  
             for word in text_to_word_list(row[question]):
                 # Check for unwanted words
                 if word in stops:
