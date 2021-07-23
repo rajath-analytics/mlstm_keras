@@ -5,10 +5,6 @@ from tensorflow.python.keras.layers import Layer
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 
 
-import nltk
-nltk.download('stopwords')
-from nltk.corpus import stopwords
-
 from gensim.models import KeyedVectors
 
 import gensim
@@ -66,9 +62,6 @@ def make_w2v_embeddings(df, embedding_dim=300, empty_w2v=False):
     vocabs_not_w2v = {}
     vocabs_not_w2v_cnt = 0
 
-    # Stopwords
-    stops = set(stopwords.words('english'))
-
     # Load word2vec
     print("Loading word2vec model(it may takes 2-3 mins) ...")
 
@@ -88,11 +81,7 @@ def make_w2v_embeddings(df, embedding_dim=300, empty_w2v=False):
 
             q2n = []  
             for word in text_to_word_list(row[question]):
-                # Check for unwanted words
-                if word in stops:
-                    continue
 
-                # If a word is missing from word2vec model.
                 if word not in word2vec.vocab:
                     if word not in vocabs_not_w2v:
                         vocabs_not_w2v_cnt += 1
