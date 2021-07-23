@@ -53,7 +53,6 @@ def similarity():
 
 
     model = tf.keras.models.load_model('./data/SiameseLSTM.h5', custom_objects={'ManDist': ManDist})
-    model.summary()
 
     prediction = model.predict([X_test['left'], X_test['right']]) * 100
 

@@ -77,16 +77,14 @@ shared_model = x
 left_input = Input(shape=(max_seq_length,), dtype='int32')
 right_input = Input(shape=(max_seq_length,), dtype='int32')
 
-# The visible layer
 
-# Pack it all up into a Manhattan Distance model
 malstm_distance = ManDist()([shared_model(left_input), shared_model(right_input)])
 model = Model(inputs=[left_input, right_input], outputs=[malstm_distance])
 
 model.compile(loss='mean_squared_error', optimizer=tf.keras.optimizers.Adam(clipnorm=1.5), metrics=['accuracy'])
 model.summary()
 
-# Start trainings
+
 training_start_time = time()
 malstm_trained = model.fit([X_train['left'], X_train['right']], Y_train,
                            batch_size=batch_size, epochs=n_epoch,
