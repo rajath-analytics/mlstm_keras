@@ -42,7 +42,7 @@ def similarity():
 
     # Make word2vec embedding
     embedding_dim = 300
-    max_seq_length = 70
+    max_seq_length = 20
     test_df, embeddings = make_w2v_embeddings(test_df, embedding_dim=embedding_dim, empty_w2v=False)
 
     # Split to dicts and append zero padding.
